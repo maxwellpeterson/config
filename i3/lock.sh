@@ -1,38 +1,43 @@
 #!/bin/sh
 
-BLANK='#00000000'
-CLEAR='#ffffff22'
-DEFAULT='#5e81accc'
-TEXT='#81a1c1ee'
-WRONG='#880000bb'
-VERIFYING='#bb00bbbb'
+BG='#282828cc'
+TEXT='#928374'
+BORDER=$TEXT
+ARC='#b16286'
+VERIFYING='#458588'
+WRONG='#cc241d'
 
 i3lock \
---insidever-color=$CLEAR     \
---ringver-color=$VERIFYING   \
 \
---insidewrong-color=$CLEAR   \
---ringwrong-color=$WRONG     \
+--inside-color=$BG      \
+--insidever-color=$BG   \
+--insidewrong-color=$BG \
+--line-uses-inside      \
 \
---inside-color=$BLANK        \
---ring-color=$DEFAULT        \
---line-color=$BLANK          \
---separator-color=$DEFAULT   \
+--ring-color=$BORDER       \
+--ringver-color=$VERIFYING \
+--ringwrong-color=$WRONG   \
 \
---verif-color=$TEXT          \
---wrong-color=$TEXT          \
---time-color=$TEXT           \
---date-color=$TEXT           \
---layout-color=$TEXT         \
---keyhl-color=$WRONG         \
---bshl-color=$WRONG          \
+--keyhl-color=$ARC     \
+--bshl-color=$ARC      \
+--separator-color=$ARC \
 \
---screen 1                   \
---blur 5                     \
---clock                      \
---indicator                  \
---time-str="%_I:%M %p %Z"    \
---date-str="%m/%d/%Y"        \
+--noinput-text="" \
+--verif-text=""   \
+--wrong-text=""   \
 \
---radius=180                 \
---date-size=16               \
+--time-str="%_I:%M %p %Z"     \
+--time-font="Source Code Pro" \
+--time-size=24                \
+--time-color=$TEXT            \
+\
+--date-str="%b %d, %Y"         \
+--date-font="Source Code Pro" \
+--date-size=16                \
+--date-color=$TEXT            \
+\
+--radius=120  \
+--force-clock \
+--indicator   \
+--blur 8      \
+
