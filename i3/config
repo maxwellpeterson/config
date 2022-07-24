@@ -187,7 +187,7 @@ bar {
 	output DP-1-8
 	tray_output primary
 	strip_workspace_numbers yes
-  status_command i3blocks -c ~/.i3/i3blocks-short.conf
+  status_command i3blocks -c ~/.config/i3/i3blocks-short.conf
 	colors {
 		background $bar-bg-color
 		statusline $text-color
@@ -203,7 +203,7 @@ bar {
 	output primary
 	strip_workspace_numbers yes
 	separator_symbol <<
-  status_command i3blocks -c ~/.i3/i3blocks-long.conf
+  status_command i3blocks -c ~/.config/i3/i3blocks-long.conf
 	colors {
 		background $bar-bg-color
 		statusline $inactive-text-color
