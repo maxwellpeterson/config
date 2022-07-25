@@ -7,6 +7,8 @@ ARC='#b16286'
 VERIFYING='#458588'
 WRONG='#cc241d'
 
+xss-lock --transfer-sleep-lock -- \
+\
 i3lock \
 \
 --inside-color=$BG      \
@@ -40,4 +42,6 @@ i3lock \
 --force-clock \
 --indicator   \
 --blur 8      \
+\
+--nofork \
 
