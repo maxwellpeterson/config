@@ -20,7 +20,7 @@ exec --no-startup-id ~/.config/i3/lock.sh
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
+set $refresh_i3status pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -229,8 +229,8 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/gruvbox_pacman.png
 # Taken from https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10  # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && $refresh_i3status
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && $refresh_i3status
 
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
