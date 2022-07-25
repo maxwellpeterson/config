@@ -7,7 +7,11 @@ ARC='#b16286'
 VERIFYING='#458588'
 WRONG='#cc241d'
 
-xss-lock --transfer-sleep-lock -- \
+xss-lock \
+\
+--transfer-sleep-lock \
+--notifier="~/.config/i3/dim-screen.sh" \
+-- \
 \
 i3lock \
 \
