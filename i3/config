@@ -182,6 +182,7 @@ client.unfocused $inactive-bg-color $bar-bg-color $inactive-text-color $inactive
 
 # Bar config for monitors
 bar {
+  output DP1-8
 	output DP-1
 	output DP-1-1
 	output DP-1-8
@@ -190,9 +191,11 @@ bar {
   status_command i3blocks -c ~/.config/i3/i3blocks-short.conf
 	colors {
 		background $bar-bg-color
-		statusline $text-color
+		statusline $inactive-text-color
+		separator $inactive-text-color
 		# Set workspace colors [border | background | text]
 		focused_workspace $bar-bg-color $bar-bg-color $text-color
+		# focused_statusline $text-color
 		active_workspace $bar-bg-color $bar-bg-color $active-text-color
 		inactive_workspace $bar-bg-color $bar-bg-color $inactive-text-color
 	}
