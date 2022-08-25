@@ -79,17 +79,21 @@ This function should only modify configuration layer settings."
      ;; prettier
      (javascript :variables
                  javascript-backend 'lsp
-                 javascript-linter 'eslint
+                 javascript-lsp-linter 'eslint
                  javascript-fmt-tool 'prettier
                  javascript-indent-level 2
                  javascript-fmt-on-save t
+                 node-add-modules-path t
                  )
      (typescript :variables
                  typescript-backend 'lsp
-                 typescript-linter 'eslint
+                 typescript-lsp-linter 'eslint
+                 ;; Do not set this! It will break lsp functionality
+                 ;; typescript-linter 'eslint
                  typescript-fmt-tool 'prettier
                  typescript-indent-level 2
                  typescript-fmt-on-save t
+                 node-add-modules-path t
                  )
      (xclipboard :variables
                  xclipboard-enable-cliphist t
@@ -593,6 +597,7 @@ dump."
   (case major-mode
     ((js2-mode vue-mode typescript-mode)
      (when lsp-eslint-auto-fix-on-save
+       (message "Running eslint --fix")
        (lsp-eslint-apply-all-fixes)))))
 
 
@@ -602,6 +607,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; May need to run lsp-install-server eslint to get this to work
   (add-hook 'before-save-hook 'eslint-fix)
   (setq create-lockfiles nil)
   (setq standard-indent 2)
